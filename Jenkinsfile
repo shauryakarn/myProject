@@ -1,28 +1,9 @@
 pipeline {
-  agent { label 'linux01' }
-  tools {
-    maven 'M3'
-  }
+  agent {label 'linux01'}
   stages {
-    stage('checkout') {
-      steps {
-        git 'https://github.com/shauryakarn/myProject.git'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'mvn clean compile'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'mvn test'
-        junit '**/target/surefire-reports/TEST-*.xml'
-      }
-    }
-    stage('Package') {
-      steps {
-        sh 'mvn package'
+    stage('Hello from github'){
+      steps{
+        echo "Hello world!"
       }
     }
   }
