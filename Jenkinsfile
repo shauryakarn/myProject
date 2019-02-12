@@ -15,11 +15,15 @@ pipeline {
       }
     }
     stage('Test'){
-      sh 'mvn test'
-      junit '**/target/surefire-reports/TEST-*.xml'
+      steps{
+        sh 'mvn test'
+        junit '**/target/surefire-reports/TEST-*.xml'
+      }
     }
     stage('package'){
-      sh 'mvn package'
+      steps{
+        sh 'mvn package'      
+      }
     }
   }
 }
